@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo2
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    kubernetes.io/ingress.class: "kong"
+  namespace: staging
+spec:
+  tls:
+  - secretName: demo2-infina-dev
+    hosts:
+    - demo2.infina.dev
+  rules:
+  - host: demo2.infina.dev
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service: 
+            name: demo2
+            port:
+              number: 80

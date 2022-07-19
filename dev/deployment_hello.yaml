@@ -17,9 +17,9 @@ spec:
     spec:
       containers:
       - name: demo2
-        # image: gcr.io/google-samples/node-hello:1.0
+        image: gcr.io/google-samples/node-hello:1.0
         # image: yeasy/simple-web:latest
-        image: public.ecr.aws/nginx/nginx:perl
+        # image: public.ecr.aws/nginx/nginx:perl
         ports:
         - containerPort: 80
         readinessProbe:
